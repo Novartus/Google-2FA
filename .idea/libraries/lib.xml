@@ -3,16 +3,33 @@
     <CLASSES>
       <root url="file://$PATH_TO_FX$" />
       <root url="file://$PROJECT_DIR$/QR-Code" />
+      <root url="file://$PROJECT_DIR$/QR-Code/commons-codec-1.14" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/QR-Code/commons-codec-1.14/apidocs" />
+      <root url="file://$PROJECT_DIR$/QR-Code/zxing-zxing-3.4.0/docs/apidocs" />
+    </JAVADOC>
     <NATIVE>
       <root url="file://$PATH_TO_FX$" />
     </NATIVE>
     <SOURCES>
       <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PROJECT_DIR$/QR-Code/commons-codec-1.14" />
+      <root url="file://$PROJECT_DIR$/QR-Code/zxing-zxing-3.4.0/android-core/src/main/java" />
+      <root url="file://$PROJECT_DIR$/QR-Code/zxing-zxing-3.4.0/android-integration/src/main/java" />
+      <root url="file://$PROJECT_DIR$/QR-Code/zxing-zxing-3.4.0/android/src" />
+      <root url="file://$PROJECT_DIR$/QR-Code/zxing-zxing-3.4.0/core/src/main/java" />
+      <root url="file://$PROJECT_DIR$/QR-Code/zxing-zxing-3.4.0/core/src/test/java" />
+      <root url="file://$PROJECT_DIR$/QR-Code/zxing-zxing-3.4.0/javase/src/main/java" />
+      <root url="file://$PROJECT_DIR$/QR-Code/zxing-zxing-3.4.0/javase/src/test/java" />
+      <root url="file://$PROJECT_DIR$/QR-Code/zxing-zxing-3.4.0/zxing.appspot.com/src/main/java" />
+      <root url="file://$PROJECT_DIR$/QR-Code/zxing-zxing-3.4.0/zxingorg/src/main/java" />
+      <root url="file://$PROJECT_DIR$/QR-Code/zxing-zxing-3.4.0/zxingorg/src/test/java" />
     </SOURCES>
     <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
     <jarDirectory url="file://$PROJECT_DIR$/QR-Code" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/QR-Code/commons-codec-1.14" recursive="false" />
     <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/QR-Code/commons-codec-1.14" recursive="false" type="SOURCES" />
   </library>
 </component>
