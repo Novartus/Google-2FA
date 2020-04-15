@@ -7,6 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
+
+
 
 public class Main extends Application  {
     Stage window;
@@ -33,9 +36,9 @@ public class Main extends Application  {
         //LAYOUT Vertical Column
         StackPane layout2 = new StackPane();
         layout2.getChildren().addAll(exit_button);
-        scene2 = new Scene(layout2,250,250);
+        scene2 = new Scene(layout2,300,300);
 
-        button1 = new Button("Next Window");
+        button1 = new Button("Generate Code");
         button1.setOnAction(e ->window.setScene(scene2));  //LAMBDA EXPRESSIONS ARE AWESOME , CLEAN CODE !! JAVA 8
 
         //  exit_button.setOnAction(e -> System.exit(0));

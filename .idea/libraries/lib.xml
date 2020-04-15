@@ -1,16 +1,18 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="file://$USER_HOME$/javafx-sdk-14/lib" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PROJECT_DIR$/QR-Code" />
     </CLASSES>
     <JAVADOC />
     <NATIVE>
-      <root url="file://$USER_HOME$/javafx-sdk-14/lib" />
+      <root url="file://$PATH_TO_FX$" />
     </NATIVE>
     <SOURCES>
-      <root url="file://$USER_HOME$/javafx-sdk-14/lib" />
+      <root url="file://$PATH_TO_FX$" />
     </SOURCES>
-    <jarDirectory url="file://$USER_HOME$/javafx-sdk-14/lib" recursive="false" />
-    <jarDirectory url="file://$USER_HOME$/javafx-sdk-14/lib" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/QR-Code" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
   </library>
 </component>
