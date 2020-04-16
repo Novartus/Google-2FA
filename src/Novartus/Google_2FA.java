@@ -8,13 +8,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.util.Scanner;
 
 import com.google.zxing.common.ByteMatrix;
 import javafx.animation.PauseTransition;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import org.apache.commons.codec.binary.Base32;
 import org.apache.commons.codec.binary.Hex;
@@ -27,7 +28,6 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -35,11 +35,9 @@ import java.io.FileInputStream;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import javax.imageio.ImageIO;
-
 public class Google_2FA extends Application{
     Stage window;
-
+    public static String QR_Path;
     public static void main(String[] args) throws Exception {
 
         Scanner scanner= new Scanner(System.in);
@@ -61,7 +59,7 @@ public class Google_2FA extends Application{
         if (!Tmp_Dir.endsWith(File.separator)) {
             Tmp_Dir += File.separator;
         }
-        String QR_Path = Tmp_Dir + "2FA-QR-Code.png";
+        QR_Path = Tmp_Dir + "2FA-QR-Code.png";
         createQRCode(BarCode, QR_Path, 400, 400);
 
         System.out.println("\n Configure the Google Authenticator App By Scanning The Following QR code:\n");
@@ -74,7 +72,7 @@ public class Google_2FA extends Application{
 
         String lastCode = null;
         launch(args); // Starting Application
-        
+
         while (true) {
             String code = TOTPCode(MagicKey);
             if (!code.equals(lastCode)) {
@@ -83,7 +81,10 @@ public class Google_2FA extends Application{
             lastCode = code;
             try {
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {};
+            } catch (InterruptedException e) {}
+            finally {
+                Files.delete(Paths.get(QR_Path)); // Delete Files on exit
+            };
         }
     }
 
@@ -95,7 +96,6 @@ public class Google_2FA extends Application{
         String MagicKey = base32.encodeToString(bytes);
         return MagicKey.toLowerCase().replaceAll("(.{4})(?=.{4})", "$1 ");
     }
-
 
     public static String getGoogleAuthenticatorBarCode(String MagicKey, String userid, String issuer) {
         String normalizedBase32Key = MagicKey.replace(" ", "").toUpperCase();
@@ -132,7 +132,7 @@ public class Google_2FA extends Application{
     public void start(Stage stage) throws Exception {
     window = stage;
 
-        Image qrcode = new Image(new FileInputStream("/tmp/2FA-QR-Code.png"));
+        Image qrcode = new Image(new FileInputStream(QR_Path));
         ImageView imageView = new ImageView(qrcode);
         imageView.setFitHeight(250);
         imageView.setFitWidth(250);
