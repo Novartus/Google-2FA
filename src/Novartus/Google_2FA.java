@@ -1,12 +1,14 @@
 package Novartus;
 
-// https://github.com/Novartus/
+import Novartus.AddOn.TOTP;
+import org.apache.commons.codec.binary.Base32;
+import org.apache.commons.codec.binary.Hex;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.io.FileInputStream;
 import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,23 +19,17 @@ import com.google.zxing.common.ByteMatrix;
 import javafx.animation.PauseTransition;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-import org.apache.commons.codec.binary.Base32;
-import org.apache.commons.codec.binary.Hex;
-import Novartus.AddOn.TOTP;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
-
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import java.io.FileInputStream;
-
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 public class Google_2FA extends Application{
     Stage window;
