@@ -4,17 +4,25 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
-
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 
 public class Main extends Application  {
     Stage window;
-    Button button1, exit_button;
-    Scene scene1, scene2;
+    Button generate_button, exit_button;
+    Scene scene1, scene2, scene3;
 
     public static void main(String[] args) {
         launch(args); //It starts here
@@ -24,32 +32,40 @@ public class Main extends Application  {
     public void start(Stage primaryStage) throws Exception {
        window = primaryStage;
 
-       Label label1= new Label("Second Window");
+        generate_button = new Button("Generate Code");
+        generate_button.setOnAction(e ->window.setScene(scene2));  //LAMBDA EXPRESSIONS ARE AWESOME , CLEAN CODE !! JAVA 8
+
+        Image qrcode = new Image(new FileInputStream("/tmp/2FA-QR-Code.png"));
+        ImageView imageView = new ImageView(qrcode);
+        imageView.setFitHeight(200);
+        imageView.setFitWidth(200);
+        imageView.setPreserveRatio(true);
+
+
+        // Label label1= new Label("Second Window");
         exit_button = new Button("EXIT");
-
-        exit_button.setOnAction(e -> {
-         //  System.out.println("Now switching to other scene :)");
-           System.exit(0);
-       });  //LAMBDA EXPRESSIONS ARE AWESOME , CLEAN CODE !! JAVA 8
+        exit_button.setOnAction(e -> System.exit(0));       //LAMBDA EXPRESSIONS ARE AWESOME , CLEAN CODE !! JAVA 8
 
 
-        //LAYOUT Vertical Column
-        StackPane layout2 = new StackPane();
-        layout2.getChildren().addAll(exit_button);
-        scene2 = new Scene(layout2,300,300);
 
-        button1 = new Button("Generate Code");
-        button1.setOnAction(e ->window.setScene(scene2));  //LAMBDA EXPRESSIONS ARE AWESOME , CLEAN CODE !! JAVA 8
-
-        //  exit_button.setOnAction(e -> System.exit(0));
 
         StackPane layout1 = new StackPane();
-        layout1.getChildren().add(button1);
-        scene1 = new Scene(layout1,300,300);
+        layout1.getChildren().add(generate_button);
+        scene1 = new Scene(layout1,500,500);
 
-         window.setScene(scene1);
-         window.setTitle("Title: App_FX");
-         window.show();
+        HBox layout2 = new HBox();
+        layout2.setSpacing(10);
+        layout2.getChildren().addAll(imageView, exit_button);
+        scene2 = new Scene(layout2, 500,500 );
+
+        StackPane layout3 = new StackPane();
+        layout3.getChildren().add(exit_button);
+        scene3 = new Scene(layout3,500,500);
+
+
+        window.setScene(scene1);
+        window.setTitle("Title: App_FX");
+        window.show();
 
     }
 
