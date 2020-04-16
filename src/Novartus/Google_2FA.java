@@ -12,7 +12,7 @@ import java.security.SecureRandom;
 import com.google.zxing.common.ByteMatrix;
 import org.apache.commons.codec.binary.Base32;
 import org.apache.commons.codec.binary.Hex;
-import AddOn.TOTP;
+import Novartus.AddOn.TOTP;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
