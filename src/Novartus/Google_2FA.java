@@ -1,4 +1,6 @@
-package sample;
+package Novartus;
+
+// https://github.com/Novartus/
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -10,21 +12,20 @@ import java.security.SecureRandom;
 import com.google.zxing.common.ByteMatrix;
 import org.apache.commons.codec.binary.Base32;
 import org.apache.commons.codec.binary.Hex;
-import Tools.TOTP;
+import AddOn.TOTP;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 
-public class QR {
+public class Google_2FA {
 
     public static void main(String[] args) throws Exception {
-        // required for generating the PNG file on a server with no graphics hardware
-        System.setProperty("java.awt.headless", "true");
-        String MagicKey = getRandomSecretKey();
+        System.setProperty("java.awt.headless", "true"); // This Allows Application To Access The Graphics Processing Capabilities Of The JVM For Making Graphs / Charts / Images To Display On System.
+        String MagicKey = getRandomMagicKey();
         String BarCode = getGoogleAuthenticatorBarCode(MagicKey, "email@example.com", "github.com/Novartus");
-        String Tmp_Dir = System.getProperty("java.io.tmpdir");
+        String Tmp_Dir = System.getProperty("java.io.tmpdir"); // System Property Indicates The Temporary Directory Used By JVM
         if (!Tmp_Dir.endsWith(File.separator)) {
             Tmp_Dir += File.separator;
         }
@@ -51,7 +52,7 @@ public class QR {
         }
     }
 
-    public static String getRandomSecretKey() {
+    public static String getRandomMagicKey() {
         SecureRandom secureRandom = new SecureRandom(); // Cryptographically Random Number Generator (RNG)
         byte[] bytes = new byte[20];
         secureRandom.nextBytes(bytes);
