@@ -46,6 +46,7 @@ public class Google_2FA extends Application{
 
         //userid="email@example.com";
         //issuer="github.com/Novartus";
+        //Change it to your own userID & issuer
 
 
         System.setProperty("java.awt.headless", "true"); // This Allows Application To Access The Graphics Processing Capabilities Of The JVM For Making Graphs / Charts / Images To Display On System.
